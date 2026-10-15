@@ -1,58 +1,44 @@
 /**
- * DECOARPINT — Premium Interactions 2026
- * Animations: Custom cursor, scroll reveal, counter, carousel,
- *             parallax, mobile nav, scroll progress, smooth hover
+ * DECOARPINT — Interacciones
+ * Barra de progreso, header, menú móvil, carrusel, scroll reveal,
+ * contadores, desplegable de teléfonos, botones magnéticos
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Custom cursor removed — using default browser cursor
-  const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+  const isFinePointer  = window.matchMedia('(pointer: fine)').matches;
+  const reducedMotion  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ════════════════════════════════════════════
-  // 2. SCROLL PROGRESS BAR
+  // 1. SCROLL PROGRESS BAR
   // ════════════════════════════════════════════
   const progressBar = document.createElement('div');
   progressBar.className = 'scroll-progress';
+  progressBar.setAttribute('aria-hidden', 'true');
   document.body.prepend(progressBar);
 
   function updateProgress() {
-    const scrollTop    = window.scrollY;
-    const docHeight    = document.documentElement.scrollHeight - window.innerHeight;
-    const progress     = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress  = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     progressBar.style.width = progress + '%';
   }
 
   // ════════════════════════════════════════════
-  // 3. STICKY HEADER — transparent → dark
+  // 2. STICKY HEADER — transparent → dark
   // ════════════════════════════════════════════
-  const header = document.querySelector('header');
+  const header      = document.querySelector('header');
+  const heroSection = document.querySelector('.hero-section');
 
   function updateHeader() {
     if (!header) return;
-    const heroSection = document.querySelector('.hero-section');
-    if (heroSection) {
-      if (window.scrollY > 40) {
-        header.classList.remove('transparent');
-        header.classList.add('scrolled');
-      } else {
-        header.classList.add('transparent');
-        header.classList.remove('scrolled');
-      }
-    } else {
-      header.classList.add('scrolled');
-    }
-  }
-
-  // Hero pages start transparent
-  if (document.querySelector('.hero-section')) {
-    header?.classList.add('transparent');
-  } else {
-    header?.classList.add('scrolled');
+    const solid = !heroSection || window.scrollY > 40;
+    header.classList.toggle('scrolled', solid);
+    header.classList.toggle('transparent', !solid);
   }
 
   // ════════════════════════════════════════════
-  // 4. SCROLL LISTENER (throttled with RAF)
+  // 3. SCROLL LISTENER (throttled with RAF)
   // ════════════════════════════════════════════
   let ticking = false;
 
@@ -71,108 +57,169 @@ document.addEventListener('DOMContentLoaded', () => {
   updateProgress();
 
   // ════════════════════════════════════════════
-  // 5. MOBILE NAV
+  // 4. MOBILE NAV
   // ════════════════════════════════════════════
   const menuToggle = document.querySelector('.menu-toggle');
   const mobileNav  = document.querySelector('.mobile-nav');
 
   if (menuToggle && mobileNav) {
+    function setMenu(open, { restoreFocus = false } = {}) {
+      menuToggle.classList.toggle('open', open);
+      mobileNav.classList.toggle('open', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      document.body.style.overflow = open ? 'hidden' : '';
+      if (open) {
+        mobileNav.querySelector('a')?.focus({ preventScroll: true });
+      } else if (restoreFocus) {
+        menuToggle.focus();
+      }
+    }
+
     menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('open');
-      mobileNav.classList.toggle('open');
-      document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+      setMenu(!mobileNav.classList.contains('open'));
     });
 
     mobileNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.classList.remove('open');
-        mobileNav.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', () => setMenu(false));
     });
 
     // Close on backdrop click
     mobileNav.addEventListener('click', e => {
-      if (e.target === mobileNav) {
-        menuToggle.classList.remove('open');
-        mobileNav.classList.remove('open');
-        document.body.style.overflow = '';
+      if (e.target === mobileNav) setMenu(false);
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+        setMenu(false, { restoreFocus: true });
       }
+    });
+
+    // Leaving the mobile breakpoint closes the menu
+    window.matchMedia('(min-width: 1025px)').addEventListener('change', e => {
+      if (e.matches) setMenu(false);
     });
   }
 
   // ════════════════════════════════════════════
-  // 6. CAROUSEL — Hero
+  // 5. CAROUSEL — Hero
   // ════════════════════════════════════════════
-  const slides  = document.querySelectorAll('.carousel-slide');
-  const dots    = document.querySelectorAll('.dot');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
+  const slides   = document.querySelectorAll('.carousel-slide');
+  const dots     = document.querySelectorAll('.dot');
+  const prevBtn  = document.getElementById('prevBtn');
+  const nextBtn  = document.getElementById('nextBtn');
+  const pauseBtn = document.getElementById('pauseBtn');
+  const AUTOPLAY_MS = 6000;
   let current = 0;
-  let autoplayTimer;
+  let autoplayTimer = null;
+  let userPaused = reducedMotion;   // no autoplay with reduced motion
+  let hoverPaused = false;
 
   function goTo(index) {
-    slides[current]?.classList.remove('active');
-    dots[current]?.classList.remove('active');
+    if (!slides.length) return;
     current = ((index % slides.length) + slides.length) % slides.length;
-    slides[current]?.classList.add('active');
-    dots[current]?.classList.add('active');
+    slides.forEach((slide, i) => {
+      const active = i === current;
+      slide.classList.toggle('active', active);
+      slide.setAttribute('aria-hidden', String(!active));
+      slide.inert = !active;
+    });
+    dots.forEach((dot, i) => {
+      const active = i === current;
+      dot.classList.toggle('active', active);
+      if (active) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
   }
 
-  function startAutoplay() {
-    autoplayTimer = setInterval(() => goTo(current + 1), 5000);
-  }
-
-  function resetAutoplay() {
+  function stopAutoplay() {
     clearInterval(autoplayTimer);
-    startAutoplay();
+    autoplayTimer = null;
+  }
+
+  function syncAutoplay() {
+    stopAutoplay();
+    if (!userPaused && !hoverPaused && !document.hidden && slides.length > 1) {
+      autoplayTimer = setInterval(() => goTo(current + 1), AUTOPLAY_MS);
+    }
+  }
+
+  function updatePauseBtn() {
+    if (!pauseBtn) return;
+    pauseBtn.classList.toggle('paused', userPaused);
+    pauseBtn.setAttribute('aria-label', userPaused ? 'Reanudar carrusel' : 'Pausar carrusel');
   }
 
   if (slides.length > 0) {
+    goTo(0);
+
     dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => { goTo(i); resetAutoplay(); });
+      dot.addEventListener('click', () => { goTo(i); syncAutoplay(); });
     });
-    prevBtn?.addEventListener('click', () => { goTo(current - 1); resetAutoplay(); });
-    nextBtn?.addEventListener('click', () => { goTo(current + 1); resetAutoplay(); });
+    prevBtn?.addEventListener('click', () => { goTo(current - 1); syncAutoplay(); });
+    nextBtn?.addEventListener('click', () => { goTo(current + 1); syncAutoplay(); });
 
-    // Touch swipe
-    let touchStartX = 0;
-    const heroSection = document.querySelector('.hero-section');
-    heroSection?.addEventListener('touchstart', e => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-    heroSection?.addEventListener('touchend', e => {
-      const delta = touchStartX - e.changedTouches[0].screenX;
-      if (Math.abs(delta) > 50) {
-        goTo(current + (delta > 0 ? 1 : -1));
-        resetAutoplay();
-      }
-    }, { passive: true });
+    pauseBtn?.addEventListener('click', () => {
+      userPaused = !userPaused;
+      updatePauseBtn();
+      syncAutoplay();
+    });
 
-    startAutoplay();
+    // Pause while the pointer or keyboard focus is inside the hero
+    if (heroSection) {
+      heroSection.addEventListener('mouseenter', () => { hoverPaused = true;  syncAutoplay(); });
+      heroSection.addEventListener('mouseleave', () => { hoverPaused = false; syncAutoplay(); });
+      heroSection.addEventListener('focusin',    () => { hoverPaused = true;  syncAutoplay(); });
+      heroSection.addEventListener('focusout', e => {
+        if (!heroSection.contains(e.relatedTarget)) { hoverPaused = false; syncAutoplay(); }
+      });
+
+      // Touch swipe
+      let touchStartX = 0;
+      heroSection.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      heroSection.addEventListener('touchend', e => {
+        const delta = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(delta) > 50) {
+          goTo(current + (delta > 0 ? 1 : -1));
+          syncAutoplay();
+        }
+      }, { passive: true });
+    }
+
+    document.addEventListener('visibilitychange', syncAutoplay);
+
+    updatePauseBtn();
+    syncAutoplay();
   }
 
   // ════════════════════════════════════════════
-  // 7. SCROLL REVEAL — IntersectionObserver
+  // 6. SCROLL REVEAL — IntersectionObserver
   // ════════════════════════════════════════════
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        revealObserver.unobserve(entry.target);
-      }
+  const revealEls = document.querySelectorAll('[data-reveal]');
+
+  if (reducedMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('revealed'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
     });
-  }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -40px 0px'
-  });
 
-  document.querySelectorAll('[data-reveal]').forEach(el => {
-    revealObserver.observe(el);
-  });
+    revealEls.forEach(el => revealObserver.observe(el));
+  }
 
   // ════════════════════════════════════════════
-  // 8. ANIMATED COUNTERS
+  // 7. ANIMATED COUNTERS
+  //    El HTML ya contiene el valor final; solo se anima si procede.
   // ════════════════════════════════════════════
   function animateCounter(el) {
     const target   = parseFloat(el.dataset.target);
@@ -182,10 +229,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const isFloat  = target % 1 !== 0;
 
     function step(now) {
-      const elapsed  = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
-      const eased    = 1 - Math.pow(1 - progress, 3);
+      const progress = Math.min((now - start) / duration, 1);
+      const eased    = 1 - Math.pow(1 - progress, 3); // ease out cubic
       const value    = target * eased;
       el.textContent = (isFloat ? value.toFixed(1) : Math.floor(value)) + suffix;
 
@@ -196,66 +241,74 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(step);
   }
 
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        counterObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.4 });
+  const counters = document.querySelectorAll('[data-counter]');
 
-  document.querySelectorAll('[data-counter]').forEach(el => {
-    counterObserver.observe(el);
-  });
-
-  // ════════════════════════════════════════════
-  // 9. PHONE DROPDOWN (footer)
-  // ════════════════════════════════════════════
-  document.querySelectorAll('#phoneToggle').forEach(toggle => {
-    const container = toggle.closest('.phone-container');
-    const dropdown  = container?.querySelector('.phone-dropdown');
-
-    if (!dropdown) return;
-
-    toggle.addEventListener('click', e => {
-      e.stopPropagation();
-      dropdown.classList.toggle('show');
-    });
-
-    document.addEventListener('click', e => {
-      if (!container.contains(e.target)) {
-        dropdown.classList.remove('show');
-      }
-    });
-  });
-
-  // ════════════════════════════════════════════
-  // 10. PARALLAX — subtle on hero text
-  // ════════════════════════════════════════════
-  const parallaxEls = document.querySelectorAll('[data-parallax]');
-
-  if (parallaxEls.length > 0) {
-    window.addEventListener('scroll', () => {
-      const sy = window.scrollY;
-      parallaxEls.forEach(el => {
-        const speed = parseFloat(el.dataset.parallax) || 0.3;
-        el.style.transform = `translateY(${sy * speed}px)`;
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
       });
-    }, { passive: true });
+    }, { threshold: 0.4 });
+
+    counters.forEach(el => {
+      el.textContent = '0' + (el.dataset.suffix || '');
+      counterObserver.observe(el);
+    });
   }
 
   // ════════════════════════════════════════════
-  // 11. MAGNETIC BUTTONS — subtle effect
+  // 8. PHONE DROPDOWN (footer)
   // ════════════════════════════════════════════
-  if (isFinePointer) {
-    document.querySelectorAll('.btn-primary, .btn-outline, .carousel-btn').forEach(btn => {
+  document.querySelectorAll('.phone-container').forEach(container => {
+    const toggle   = container.querySelector('#phoneToggle');
+    const dropdown = container.querySelector('.phone-dropdown');
+    if (!toggle || !dropdown) return;
+
+    function setDropdown(open) {
+      dropdown.classList.toggle('show', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    }
+
+    toggle.addEventListener('click', e => {
+      e.stopPropagation();
+      setDropdown(!dropdown.classList.contains('show'));
+    });
+
+    document.addEventListener('click', e => {
+      if (!container.contains(e.target)) setDropdown(false);
+    });
+
+    container.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && dropdown.classList.contains('show')) {
+        setDropdown(false);
+        toggle.focus();
+      }
+    });
+
+    container.addEventListener('focusout', e => {
+      if (!container.contains(e.relatedTarget)) setDropdown(false);
+    });
+  });
+
+  // ════════════════════════════════════════════
+  // 9. FOOTER YEAR
+  // ════════════════════════════════════════════
+  document.querySelectorAll('[data-year]').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
+
+  // ════════════════════════════════════════════
+  // 10. MAGNETIC BUTTONS — subtle effect
+  // ════════════════════════════════════════════
+  if (isFinePointer && !reducedMotion) {
+    document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
       btn.addEventListener('mousemove', e => {
         const rect = btn.getBoundingClientRect();
-        const cx = rect.left + rect.width  / 2;
-        const cy = rect.top  + rect.height / 2;
-        const dx = (e.clientX - cx) * 0.18;
-        const dy = (e.clientY - cy) * 0.18;
+        const dx = (e.clientX - (rect.left + rect.width  / 2)) * 0.18;
+        const dy = (e.clientY - (rect.top  + rect.height / 2)) * 0.18;
         btn.style.transform = `translate(${dx}px, ${dy}px) translateY(-2px)`;
       });
 
