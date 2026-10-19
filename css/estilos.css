@@ -2512,7 +2512,7 @@ address.loc-value { font-style: normal; }
   .products-grid .product-card:last-child .product-info { flex: 1; }
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1160px) {
   .main-nav { display: none; }
   .menu-toggle { display: flex; }
 }

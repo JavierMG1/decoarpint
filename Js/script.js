@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Leaving the mobile breakpoint closes the menu
-    window.matchMedia('(min-width: 1121px)').addEventListener('change', e => {
+    window.matchMedia('(min-width: 1161px)').addEventListener('change', e => {
       if (e.matches) setMenu(false);
     });
   }
