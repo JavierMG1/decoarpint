@@ -1399,6 +1399,7 @@ footer {
 .page-hero--equipo    { --hero-img: url('../imagenes/premium.png'); }
 .page-hero--ubicacion { --hero-img: url('../imagenes/fachada.png'); }
 .page-hero--contacto  { --hero-img: url('../imagenes/interior.png'); }
+.page-hero--sanitario { --hero-img: url('../imagenes/interior.png'); }
 
 .page-hero::before {
   content: '';
@@ -2029,6 +2030,405 @@ address.loc-value { font-style: normal; }
 }
 
 /* ============================================
+   SECTOR SANITARIO
+   ============================================ */
+
+/* Hero badge (index) */
+.hero-badge {
+  position: absolute;
+  top: 108px;
+  left: var(--edge);
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  max-width: calc(100% - 2 * var(--gutter));
+  padding: 8px 18px 8px 8px;
+  background: rgba(17,17,17,0.55);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: var(--r-full);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--white);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.35;
+  transition: background var(--t-fast) ease, border-color var(--t-fast) ease, transform var(--t-fast) var(--ease);
+}
+
+.hero-badge:hover {
+  background: rgba(200,57,15,0.85);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.hero-badge-icon {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-badge-icon svg { width: 17px; height: 17px; fill: var(--white); }
+
+.hero-badge strong { font-weight: 700; }
+
+.hero-badge-arrow {
+  width: 16px; height: 16px;
+  fill: currentColor;
+  flex-shrink: 0;
+  transition: transform 0.3s var(--ease-back);
+}
+
+.hero-badge:hover .hero-badge-arrow { transform: translateX(3px); }
+
+/* Health band (index) */
+.health-band {
+  padding: 120px var(--gutter) 0;
+  max-width: calc(var(--container) + 2 * var(--gutter));
+  margin: 0 auto;
+  width: 100%;
+}
+
+.health-band-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.health-band .section-title { margin-bottom: 20px; }
+
+.health-band-desc {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+
+.hospital-list {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.hospital-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--r-lg);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-xs);
+}
+
+.hospital-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  background: var(--carbon);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.hospital-icon svg { width: 24px; height: 24px; fill: var(--white); }
+
+.hospital-item--more .hospital-icon { background: rgba(200,57,15,0.1); }
+.hospital-item--more .hospital-icon svg { fill: var(--accent); }
+
+.hospital-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.hospital-place {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+/* Health page — intro */
+.health-intro {
+  padding: 100px var(--gutter);
+  max-width: calc(1104px + 2 * var(--gutter));
+  margin: 0 auto;
+  width: 100%;
+}
+
+.health-intro-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.health-intro .section-title { margin-bottom: 24px; }
+
+.prose p {
+  color: var(--text-secondary);
+  font-size: 16.5px;
+  line-height: 1.8;
+}
+
+.prose p + p { margin-top: 16px; }
+
+.prose strong { color: var(--text-primary); font-weight: 600; }
+
+.check-list {
+  list-style: none;
+  display: grid;
+  gap: 18px;
+  margin-top: 4px;
+}
+
+.check-list li {
+  display: flex;
+  gap: 14px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-on-dark);
+}
+
+.check-list li::before {
+  content: '';
+  width: 24px; height: 24px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: rgba(196,162,101,0.16) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23dbbf8a' d='m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+
+.check-list strong {
+  display: block;
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* Health page — projects */
+.projects-section {
+  padding: 110px var(--gutter);
+  background: var(--ivory-dark);
+}
+
+.projects-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  list-style: none;
+}
+
+.project-card {
+  background: var(--white);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--t-mid) var(--ease), box-shadow var(--t-mid) var(--ease);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Visual header — accepts a real <img> later (it fills the area) */
+.project-media {
+  position: relative;
+  height: 150px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(200,57,15,0.38) 0%, transparent 55%),
+    linear-gradient(135deg, var(--carbon) 0%, var(--carbon-light) 100%);
+}
+
+.project-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55);
+}
+
+.project-media-icon,
+.project-location { position: relative; z-index: 1; }
+
+.project-number {
+  position: absolute;
+  top: 6px; right: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 96px;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(255,255,255,0.06);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.project-media-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.16);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background var(--t-mid) var(--ease), border-color var(--t-mid) var(--ease);
+}
+
+.project-media-icon svg { width: 26px; height: 26px; fill: var(--gold-light); }
+
+.project-card:hover .project-media-icon {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.project-card:hover .project-media-icon svg { fill: var(--white); }
+
+.project-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.project-location svg { width: 14px; height: 14px; fill: var(--gold); }
+
+.project-body {
+  padding: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+.project-alias {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.tag-list li {
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(200,57,15,0.08);
+  padding: 6px 12px;
+  border-radius: var(--r-full);
+}
+
+.project-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.project-card--more .project-media {
+  background:
+    radial-gradient(circle at 85% 15%, rgba(255,255,255,0.18) 0%, transparent 55%),
+    linear-gradient(135deg, var(--accent) 0%, #9a2a09 100%);
+}
+
+.project-card--more .project-media-icon svg,
+.project-card--more .project-location,
+.project-card--more .project-location svg { color: var(--white); fill: var(--white); }
+
+/* Four-column variant of the features grid */
+.features-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.features-grid--4 .feature-card { padding: 40px 30px; }
+
+/* Services page highlight */
+.service-highlight {
+  margin-top: 28px;
+  background: var(--carbon);
+  color: var(--white);
+  border-radius: var(--r-xl);
+  padding: 52px 56px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-highlight::before {
+  content: '';
+  position: absolute;
+  top: -140px; right: -80px;
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(200,57,15,0.24) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.service-highlight > * { position: relative; }
+
+.service-highlight-icon {
+  width: 76px; height: 76px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-accent);
+}
+
+.service-highlight-icon svg { width: 36px; height: 36px; fill: var(--white); }
+
+.service-highlight .section-eyebrow { color: var(--gold); margin-bottom: 12px; }
+
+.service-highlight h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.service-highlight h2 em { font-style: italic; color: var(--gold); }
+
+.service-highlight p {
+  font-size: 15.5px;
+  color: var(--text-on-dark);
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+/* ============================================
    SCROLL REVEAL ANIMATIONS
    (solo se ocultan si JS está activo: clase .js en <html>)
    ============================================ */
@@ -2092,7 +2492,7 @@ address.loc-value { font-style: normal; }
   .products-grid .product-card:last-child .product-info { flex: 1; }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1120px) {
   .main-nav { display: none; }
   .menu-toggle { display: flex; }
 }
@@ -2166,6 +2566,38 @@ address.loc-value { font-style: normal; }
   .hr-image-wrap { aspect-ratio: 4/3; }
   .hr-badge { bottom: 18px; left: 18px; }
   .contact-item::after { display: none; }
+}
+
+/* Sector sanitario — responsive (after the general rules on purpose) */
+@media (max-width: 1100px) {
+  .health-band-inner,
+  .health-intro-layout { grid-template-columns: 1fr; gap: 44px; }
+  .health-band-desc { max-width: 640px; }
+  .features-grid--4 { grid-template-columns: 1fr 1fr; }
+  .features-grid--4 .feature-card:last-child { grid-column: auto; }
+  .service-highlight { grid-template-columns: auto 1fr; }
+  .service-highlight .btn-primary { grid-column: 1 / -1; justify-self: start; }
+}
+
+@media (max-width: 768px) {
+  .hero-badge { top: 88px; font-size: 12.5px; padding-right: 14px; }
+  .health-band { padding-top: 72px; }
+  .hospital-item { padding: 16px 18px; gap: 14px; }
+  .hospital-icon { width: 42px; height: 42px; }
+  .hospital-name { font-size: 16.5px; }
+  .projects-section { padding: 72px var(--gutter); }
+  .projects-grid { grid-template-columns: 1fr; gap: 20px; }
+  .project-body { padding: 24px; }
+  .project-name { font-size: 21px; }
+  .features-grid--4 { grid-template-columns: 1fr; }
+  .service-highlight { grid-template-columns: 1fr; padding: 40px 26px; gap: 22px; border-radius: var(--r-lg); }
+  .service-highlight-icon { width: 60px; height: 60px; border-radius: 18px; }
+  .service-highlight-icon svg { width: 28px; height: 28px; }
+  .service-highlight .btn-primary { justify-self: stretch; }
+}
+
+@media (max-width: 480px) {
+  .hero-badge-text-long { display: none; }
 }
 
 /* ============================================
