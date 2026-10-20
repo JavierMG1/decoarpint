@@ -9,53 +9,47 @@
   <link rel="icon" type="image/png" href="../imagenes/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&display=swap" />
   <link rel="stylesheet" href="../css/estilos.css" />
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
+  <!-- LAYOUT:HEADER -->
   <a href="#main" class="skip-link">Saltar al contenido</a>
 
-  <!-- ─── MOBILE NAV ─── -->
-  <nav class="mobile-nav" id="mobileNav" aria-label="Menú móvil">
-    <a href="index.html">Inicio</a>
-    <a href="tienda.html">Servicios</a>
-    <a href="sanitario.html">Especialidad</a>
-    <a href="recursoshumanos.html">Equipo</a>
-    <a href="ubicacion.html">Ubicación</a>
-    <a href="contacto.html" class="active" aria-current="page">Contacto</a>
-    <a href="contacto.html" class="nav-cta">Presupuesto gratis →</a>
-  </nav>
-
-  <!-- ─── HEADER ─── -->
-  <header>
-    <div class="header-inner">
-      <a href="index.html" class="logo-brand" aria-label="DecoArPint — Inicio">
-        <div class="logo-wrap">
-          <img src="../imagenes/logo.png" alt="" width="509" height="472" />
-        </div>
-        <div class="brand-text">
-          <span class="brand-name">DecoArPint</span>
-          <span class="brand-tagline">Rehabilitaciones · Pintura</span>
-        </div>
+  <header class="pp-header">
+    <div class="pp-bar">
+      <a href="index.html" class="pp-logo" aria-label="DecoArPint — Inicio">
+        <span class="pp-logo-mark"><img src="../imagenes/logo.png" alt="" width="509" height="472" /></span>
+        <span class="pp-logo-name">DecoArPint</span>
       </a>
-
-      <nav class="main-nav" aria-label="Navegación principal">
+      <nav class="pp-nav" aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
         <a href="tienda.html">Servicios</a>
         <a href="sanitario.html">Especialidad</a>
         <a href="recursoshumanos.html">Equipo</a>
         <a href="ubicacion.html">Ubicación</a>
-        <a href="contacto.html" class="active" aria-current="page">Contacto</a>
-        <a href="contacto.html" class="nav-cta">Presupuesto →</a>
+        <a href="contacto.html" aria-current="page">Contacto</a>
       </nav>
-
-      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav">
-        <span></span><span></span><span></span>
+      <a href="en/contacto.html" class="pp-lang" lang="en" hreflang="en" aria-label="View this page in English">EN</a>
+      <a href="contacto.html" class="pp-cta">Presupuesto</a>
+      <button class="pp-burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="ppMenu">
+        <span></span><span></span>
       </button>
     </div>
   </header>
+
+  <nav class="pp-menu" id="ppMenu" aria-label="Menú móvil">
+    <a href="index.html">Inicio</a>
+    <a href="tienda.html">Servicios</a>
+    <a href="sanitario.html">Especialidad</a>
+    <a href="recursoshumanos.html">Equipo</a>
+    <a href="ubicacion.html">Ubicación</a>
+    <a href="contacto.html" aria-current="page">Contacto</a>
+    <a href="contacto.html" class="pp-menu-cta">Pedir presupuesto →</a>
+  </nav>
+  <!-- /LAYOUT:HEADER -->
 
   <main id="main" tabindex="-1">
     <div class="page-hero page-hero--contacto">
@@ -133,90 +127,41 @@
     </section>
   </main>
 
-  <!-- ─── FOOTER ─── -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-grid">
-
-        <!-- Brand -->
-        <div class="footer-brand-block">
-          <a href="index.html" class="footer-brand">
-            <img src="../imagenes/logo.png" alt="" width="509" height="472" loading="lazy" decoding="async" />
-            <div>
-              <div class="footer-brand-name">DecoArPint</div>
-              <span class="footer-brand-sub">Rehabilitaciones · Pintura</span>
-            </div>
-          </a>
-          <p class="footer-tagline">Empresa especializada en pintura profesional, decoración y rehabilitación de espacios en Málaga y provincia, con experiencia en hospitales y centros sanitarios.</p>
-          <div class="footer-social">
-            <a href="https://www.instagram.com/decoarpint_sl/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram (se abre en una pestaña nueva)">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/decoarpint?locale=es_ES" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook (se abre en una pestaña nueva)">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-            </a>
-            <div class="phone-container">
-              <button type="button" class="social-btn" id="phoneToggle" aria-label="Ver teléfonos de contacto" aria-expanded="false" aria-controls="phoneDropdown">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10.999h2C22 5.869 18.127 2 12.99 2v2C17.052 4 20 6.943 20 10.999z"/><path d="M13 8c2.103 0 3 .897 3 3h2c0-3.225-1.775-5-5-5v2zm3.422 5.443a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1.001 1.001 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a1 1 0 0 0-.086-1.391l-4.064-3.696z"/></svg>
-              </button>
-              <div class="phone-dropdown" id="phoneDropdown">
-                <a href="tel:+34605055115" class="phone-option">
-                  <span class="phone-opt-label">Oficina Principal</span>
-                  <span class="phone-opt-number">605 05 51 15</span>
-                </a>
-                <a href="tel:+34647537294" class="phone-option">
-                  <span class="phone-opt-label">Presupuestos</span>
-                  <span class="phone-opt-number">647 53 72 94</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Links -->
-        <nav aria-label="Navegación del pie de página">
-          <p class="footer-col-title">Navegación</p>
-          <div class="footer-col-links">
-            <a href="index.html">Inicio</a>
-            <a href="tienda.html">Servicios</a>
-            <a href="sanitario.html">Sector sanitario</a>
-            <a href="recursoshumanos.html">Únete al equipo</a>
-            <a href="ubicacion.html">Ubicación</a>
-            <a href="contacto.html">Contacto</a>
-          </div>
-        </nav>
-
-        <!-- Contact -->
-        <div>
-          <p class="footer-col-title">Contacto directo</p>
-          <div class="footer-contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10.999h2C22 5.869 18.127 2 12.99 2v2C17.052 4 20 6.943 20 10.999z"/><path d="M13 8c2.103 0 3 .897 3 3h2c0-3.225-1.775-5-5-5v2zm3.422 5.443a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1.001 1.001 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a1 1 0 0 0-.086-1.391l-4.064-3.696z"/></svg>
-            <div>
-              <a href="tel:+34605055115">605 05 51 15</a>
-              <a href="tel:+34647537294">647 53 72 94</a>
-            </div>
-          </div>
-          <div class="footer-contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"/></svg>
-            <a href="mailto:pinturas@decoarpint.com">pinturas@decoarpint.com</a>
-          </div>
-          <div class="footer-contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            <a href="ubicacion.html">Ardales, Málaga<br>España</a>
-          </div>
-        </div>
-
+  <!-- LAYOUT:FOOTER -->
+  <footer class="pp-footer">
+    <div class="pp-footer-grid">
+      <div>
+        <p class="pp-footer-brand">DecoArPint</p>
+        <p class="pp-footer-text">Pintura profesional, decoración y rehabilitación en Málaga y provincia, con experiencia en hospitales y centros sanitarios.</p>
       </div>
-
-      <div class="footer-bottom">
-        <p class="footer-copy">&copy; <span data-year>2026</span> DecoArPint SL — Todos los derechos reservados.</p>
-        <div class="footer-bottom-links">
-          <a href="contacto.html">Contacto</a>
+      <nav aria-label="Navegación del pie de página">
+        <p class="pp-footer-title">Navegación</p>
+          <a href="index.html">Inicio</a>
+          <a href="tienda.html">Servicios</a>
+          <a href="sanitario.html">Sector sanitario</a>
+          <a href="recursoshumanos.html">Únete al equipo</a>
           <a href="ubicacion.html">Ubicación</a>
-        </div>
+          <a href="contacto.html">Contacto</a>
+      </nav>
+      <div>
+        <p class="pp-footer-title">Contacto</p>
+        <a href="tel:+34605055115">605 05 51 15</a>
+        <a href="tel:+34647537294">647 53 72 94</a>
+        <a href="mailto:pinturas@decoarpint.com">pinturas@decoarpint.com</a>
+      </div>
+      <div>
+        <p class="pp-footer-title">Dónde estamos</p>
+        <a href="ubicacion.html">C. Castillo del Turón, 17<br>29550 Ardales, Málaga</a>
+      </div>
+      <div>
+        <p class="pp-footer-title">Síguenos</p>
+        <a href="https://www.instagram.com/decoarpint_sl/" target="_blank" rel="noopener noreferrer">Instagram <span class="sr-only">(se abre en una pestaña nueva)</span></a>
+        <a href="https://www.facebook.com/decoarpint?locale=es_ES" target="_blank" rel="noopener noreferrer">Facebook <span class="sr-only">(se abre en una pestaña nueva)</span></a>
       </div>
     </div>
+    <p class="pp-footer-copy">&copy; <span data-year>2026</span> DecoArPint SL — Todos los derechos reservados.</p>
   </footer>
+  <!-- /LAYOUT:FOOTER -->
 
   <script src="../Js/script.js"></script>
 </body>

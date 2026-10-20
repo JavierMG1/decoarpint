@@ -4,438 +4,281 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="DecoArPint — Empresa especializada en rehabilitaciones, pintura profesional y acabados decorativos en Málaga, con experiencia en hospitales y centros sanitarios." />
-  <meta name="theme-color" content="#111111" />
+  <meta name="theme-color" content="#f7f4ef" />
   <title>DecoArPint — Rehabilitaciones & Pintura Premium</title>
   <link rel="icon" type="image/png" href="../imagenes/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&display=swap" />
   <link rel="stylesheet" href="../css/estilos.css" />
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
+  <!-- LAYOUT:HEADER -->
   <a href="#main" class="skip-link">Saltar al contenido</a>
 
-  <!-- ─── MOBILE NAV ─── -->
-  <nav class="mobile-nav" id="mobileNav" aria-label="Menú móvil">
-    <a href="index.html" class="active" aria-current="page">Inicio</a>
-    <a href="tienda.html">Servicios</a>
-    <a href="sanitario.html">Especialidad</a>
-    <a href="recursoshumanos.html">Equipo</a>
-    <a href="ubicacion.html">Ubicación</a>
-    <a href="contacto.html">Contacto</a>
-    <a href="contacto.html" class="nav-cta">Presupuesto gratis →</a>
-  </nav>
-
-  <!-- ─── HEADER ─── -->
-  <header>
-    <div class="header-inner">
-      <a href="index.html" class="logo-brand" aria-label="DecoArPint — Inicio">
-        <div class="logo-wrap">
-          <img src="../imagenes/logo.png" alt="" width="509" height="472" />
-        </div>
-        <div class="brand-text">
-          <span class="brand-name">DecoArPint</span>
-          <span class="brand-tagline">Rehabilitaciones · Pintura</span>
-        </div>
+  <header class="pp-header">
+    <div class="pp-bar">
+      <a href="index.html" class="pp-logo" aria-label="DecoArPint — Inicio">
+        <span class="pp-logo-mark"><img src="../imagenes/logo.png" alt="" width="509" height="472" /></span>
+        <span class="pp-logo-name">DecoArPint</span>
       </a>
-
-      <nav class="main-nav" aria-label="Navegación principal">
-        <a href="index.html" class="active" aria-current="page">Inicio</a>
+      <nav class="pp-nav" aria-label="Navegación principal">
+        <a href="index.html" aria-current="page">Inicio</a>
         <a href="tienda.html">Servicios</a>
         <a href="sanitario.html">Especialidad</a>
         <a href="recursoshumanos.html">Equipo</a>
         <a href="ubicacion.html">Ubicación</a>
         <a href="contacto.html">Contacto</a>
-        <a href="contacto.html" class="nav-cta">Presupuesto →</a>
       </nav>
-
-      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav">
-        <span></span><span></span><span></span>
+      <a href="en/index.html" class="pp-lang" lang="en" hreflang="en" aria-label="View this page in English">EN</a>
+      <a href="contacto.html" class="pp-cta">Presupuesto</a>
+      <button class="pp-burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="ppMenu">
+        <span></span><span></span>
       </button>
     </div>
   </header>
 
+  <nav class="pp-menu" id="ppMenu" aria-label="Menú móvil">
+    <a href="index.html" aria-current="page">Inicio</a>
+    <a href="tienda.html">Servicios</a>
+    <a href="sanitario.html">Especialidad</a>
+    <a href="recursoshumanos.html">Equipo</a>
+    <a href="ubicacion.html">Ubicación</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="contacto.html" class="pp-menu-cta">Pedir presupuesto →</a>
+  </nav>
+  <!-- /LAYOUT:HEADER -->
+
   <main id="main" tabindex="-1">
 
-    <h1 class="sr-only">DecoArPint — Rehabilitaciones, pintura profesional y acabados decorativos en Málaga</h1>
-
-    <!-- ════════════════════════════════════════
-         HERO CAROUSEL
-    ════════════════════════════════════════ -->
-    <section class="hero-section" aria-roledescription="carrusel" aria-label="Trabajos destacados">
-      <div class="carousel-track">
-
-        <div class="carousel-slide active" role="group" aria-roledescription="diapositiva" aria-label="1 de 4">
-          <img src="../imagenes/interior.png" alt="Pintura Interior Premium" width="753" height="441" fetchpriority="high" decoding="async" />
-          <div class="slide-overlay"></div>
-          <div class="slide-content">
-            <p class="slide-label">Nuestro trabajo</p>
-            <h2 class="slide-title">Pintura Interior de Alta Gama</h2>
-            <a href="tienda.html" class="slide-cta">
-              Ver servicios
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="carousel-slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 4" aria-hidden="true" inert>
-          <img src="../imagenes/fachada.png" alt="Rehabilitación de Fachadas" width="856" height="448" loading="lazy" decoding="async" />
-          <div class="slide-overlay"></div>
-          <div class="slide-content">
-            <p class="slide-label">Exterior</p>
-            <h2 class="slide-title">Fachadas que Transforman Espacios</h2>
-            <a href="tienda.html" class="slide-cta">
-              Ver servicios
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="carousel-slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 4" aria-hidden="true" inert>
-          <img src="../imagenes/premium.png" alt="Acabados Decorativos Premium" width="859" height="438" loading="lazy" decoding="async" />
-          <div class="slide-overlay"></div>
-          <div class="slide-content">
-            <p class="slide-label">Premium</p>
-            <h2 class="slide-title">Acabados de Máxima Calidad</h2>
-            <a href="tienda.html" class="slide-cta">
-              Ver servicios
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="carousel-slide" role="group" aria-roledescription="diapositiva" aria-label="4 de 4" aria-hidden="true" inert>
-          <img src="../imagenes/interior.png" alt="Arte Decorativo" width="753" height="441" loading="lazy" decoding="async" />
-          <div class="slide-overlay"></div>
-          <div class="slide-content">
-            <p class="slide-label">Arte &amp; Detalle</p>
-            <h2 class="slide-title">Cada Rincón, una Obra de Arte</h2>
-            <a href="contacto.html" class="slide-cta">
-              Solicitar presupuesto
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/></svg>
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Healthcare experience badge -->
-      <a href="sanitario.html" class="hero-badge">
-        <span class="hero-badge-icon" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></svg>
-        </span>
-        <span><strong>Experiencia en hospitales</strong><span class="hero-badge-text-long"> de Málaga y la Costa del Sol</span></span>
-        <svg class="hero-badge-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/></svg>
-      </a>
-
-      <!-- Stats bar bottom right -->
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-value">+15</div>
-          <div class="hero-stat-label">Años de<br>experiencia</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-value">+500</div>
-          <div class="hero-stat-label">Proyectos<br>realizados</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-value">98%</div>
-          <div class="hero-stat-label">Clientes<br>satisfechos</div>
-        </div>
-      </div>
-
-      <!-- Scroll indicator -->
-      <div class="scroll-indicator" aria-hidden="true">
-        <div class="scroll-line"></div>
-        <span>Descubrir</span>
-      </div>
-
-      <!-- Carousel controls -->
-      <div class="carousel-controls">
-        <button type="button" class="carousel-btn" id="prevBtn" aria-label="Imagen anterior">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-        </button>
-        <div class="carousel-dots" role="group" aria-label="Seleccionar imagen">
-          <button type="button" class="dot active" data-index="0" aria-label="Imagen 1" aria-current="true"></button>
-          <button type="button" class="dot" data-index="1" aria-label="Imagen 2"></button>
-          <button type="button" class="dot" data-index="2" aria-label="Imagen 3"></button>
-          <button type="button" class="dot" data-index="3" aria-label="Imagen 4"></button>
-        </div>
-        <button type="button" class="carousel-btn" id="nextBtn" aria-label="Imagen siguiente">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-        </button>
-        <button type="button" class="carousel-btn carousel-pause" id="pauseBtn" aria-label="Pausar carrusel">
-          <svg class="icon-pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-          <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════════════════
-         SECTOR SANITARIO
-    ════════════════════════════════════════ -->
-    <section class="health-band" aria-labelledby="health-title">
-      <div class="health-band-inner">
-        <div data-reveal="left">
-          <span class="section-eyebrow">Sector sanitario</span>
-          <h2 class="section-title" id="health-title">Experiencia en <em>hospitales</em> y centros sanitarios</h2>
-          <p class="health-band-desc">Hemos trabajado en centros de referencia de Málaga y la Costa del Sol. Conocemos las exigencias de un entorno sanitario y adaptamos cada trabajo a las necesidades de la instalación: pintura interior y exterior, rehabilitación y pinturas técnicas.</p>
-          <a href="sanitario.html" class="btn-primary btn-primary--dark">
-            Ver proyectos sanitarios
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/></svg>
+    <!-- ════════════ HERO: prueba un color ════════════ -->
+    <section class="pp-hero" aria-labelledby="hero-title">
+      <div class="pp-hero-text">
+        <p class="pp-kicker"><span class="pp-kicker-dot" aria-hidden="true"></span>Rehabilitaciones · Pintura · Málaga</p>
+        <h1 class="pp-title" id="hero-title">
+          <span class="pp-line"><span>Pintamos</span></span>
+          <span class="pp-line"><span>espacios que</span></span>
+          <span class="pp-line"><span><em>perduran</em><svg class="pp-underline" viewBox="0 0 420 40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 28 C 70 10, 150 34, 220 20 S 360 12, 414 24"/></svg></span></span>
+        </h1>
+        <p class="pp-lead">Más de 15 años de pintura profesional, rehabilitación y acabados decorativos, con experiencia en hospitales de Málaga y la Costa del Sol.</p>
+        <div class="pp-actions">
+          <a href="contacto.html" class="pp-btn">
+            Pedir presupuesto
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/></svg>
           </a>
+          <a href="#especialidad" class="pp-textlink">Ver trabajos en hospitales</a>
         </div>
+      </div>
 
-        <ul class="hospital-list" role="list" data-reveal="right" data-delay="1">
-          <li class="hospital-item">
-            <img class="hospital-thumb" src="../imagenes/hospital-carlos-haya.webp" alt="" loading="lazy" decoding="async" />
-            <div>
-              <div class="hospital-name">Hospital Regional Universitario de Málaga</div>
-              <div class="hospital-place">Carlos Haya · Málaga</div>
-            </div>
-          </li>
-          <li class="hospital-item">
-            <img class="hospital-thumb" src="../imagenes/hospital-civil.webp" alt="" loading="lazy" decoding="async" />
-            <div>
-              <div class="hospital-name">Hospital Civil de Málaga</div>
-              <div class="hospital-place">Málaga</div>
-            </div>
-          </li>
-          <li class="hospital-item">
-            <img class="hospital-thumb" src="../imagenes/hospital-costa-del-sol.webp" alt="" loading="lazy" decoding="async" />
-            <div>
-              <div class="hospital-name">Hospital Costa del Sol</div>
-              <div class="hospital-place">Marbella</div>
-            </div>
-          </li>
-          <li class="hospital-item hospital-item--more">
-            <span class="hospital-icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></svg>
-            </span>
-            <div>
-              <div class="hospital-name">Otros hospitales y centros de salud</div>
-              <div class="hospital-place">Málaga y provincia</div>
-            </div>
-          </li>
-        </ul>
+      <figure class="pp-hero-media">
+        <div class="pp-brush">
+          <img src="../imagenes/interior.png" alt="Salón con pintura interior de alta gama" width="753" height="441" fetchpriority="high" />
+        </div>
+        <figcaption><span>Pintura interior</span><span>Málaga</span></figcaption>
+      </figure>
+
+      <div class="pp-swatches" role="group" aria-labelledby="swatch-label">
+        <span class="pp-swatches-label" id="swatch-label">Prueba un color</span>
+        <button type="button" class="pp-swatch pp-swatch--marfil" data-theme="marfil" aria-pressed="true">
+          <span class="pp-swatch-dot" aria-hidden="true"></span><span>Marfil <small>DAP 01</small></span>
+        </button>
+        <button type="button" class="pp-swatch pp-swatch--carbon" data-theme="carbon" aria-pressed="false">
+          <span class="pp-swatch-dot" aria-hidden="true"></span><span>Carbón <small>DAP 02</small></span>
+        </button>
+        <button type="button" class="pp-swatch pp-swatch--teja" data-theme="teja" aria-pressed="false">
+          <span class="pp-swatch-dot" aria-hidden="true"></span><span>Teja <small>DAP 03</small></span>
+        </button>
+        <button type="button" class="pp-swatch pp-swatch--dorado" data-theme="dorado" aria-pressed="false">
+          <span class="pp-swatch-dot" aria-hidden="true"></span><span>Dorado <small>DAP 04</small></span>
+        </button>
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-         FEATURES — Por qué elegirnos
-    ════════════════════════════════════════ -->
-    <section class="features-section" aria-labelledby="features-title">
-      <div class="section-header">
-        <span class="section-eyebrow" data-reveal>Por qué elegirnos</span>
-        <h2 class="section-title" id="features-title" data-reveal data-delay="1">Excelencia en cada <em>detalle</em></h2>
-        <p class="section-desc" data-reveal data-delay="2">Más de 15 años transformando espacios con profesionalidad, materiales premium y un equipo apasionado por el oficio.</p>
+    <!-- ════════════ CINTA ════════════ -->
+    <div class="pp-marquee" aria-hidden="true">
+      <div class="pp-marquee-track">
+        <span>Pintura interior</span><i>✦</i><span class="is-outline">Fachadas</span><i>✦</i><span>Rehabilitación</span><i>✦</i><span class="is-outline">Pinturas técnicas</span><i>✦</i><span>Acabados decorativos</span><i>✦</i>
+        <span>Pintura interior</span><i>✦</i><span class="is-outline">Fachadas</span><i>✦</i><span>Rehabilitación</span><i>✦</i><span class="is-outline">Pinturas técnicas</span><i>✦</i><span>Acabados decorativos</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ════════════ SERVICIOS: carta de color ════════════ -->
+    <section class="pp-section pp-services" id="servicios" aria-labelledby="services-title">
+      <div class="pp-head" data-reveal>
+        <p class="pp-index">01 — Servicios</p>
+        <h2 class="pp-h2" id="services-title">Una carta de color para cada <em>espacio</em></h2>
+        <p class="pp-head-desc">Cada proyecto es único. Aplicamos el método, los materiales y el cuidado que merece tu espacio, sea cual sea su tamaño o complejidad.</p>
       </div>
 
-      <div class="features-grid">
-
-        <div class="feature-card" data-reveal data-delay="1">
-          <span class="feature-number" aria-hidden="true">01</span>
-          <div class="feature-icon-wrap" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3c-4.963 0-9 4.038-9 9s4.037 9 9 9 9-4.038 9-9c0-4.963-4.037-9-9-9zm0 16c-3.859 0-7-3.14-7-7 0-3.861 3.141-7 7-7 3.86 0 7 3.139 7 7 0 3.86-3.14 7-7 7zm-3.5-7c0-1.932 1.568-3.5 3.5-3.5s3.5 1.568 3.5 3.5-1.568 3.5-3.5 3.5S8.5 13.932 8.5 12z"/></svg>
+      <div class="pp-deck">
+        <article class="pp-chip" data-reveal>
+          <div class="pp-chip-media"><img src="../imagenes/interior.png" alt="Salón con pintura interior" loading="lazy" /></div>
+          <div class="pp-chip-tints pp-chip-tints--teja" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="pp-chip-body">
+            <span class="pp-chip-code">DAP-01 · Interior</span>
+            <h3>Pintura interior</h3>
+            <p>Habitaciones, salones, cocinas y baños con pinturas de alta calidad, antihumedad y lavables.</p>
           </div>
-          <h3>Pintura Profesional</h3>
-          <p>Servicios de pintura interior y exterior con acabados de alta calidad. Utilizamos las mejores marcas del mercado para un resultado impecable y duradero.</p>
-        </div>
+        </article>
 
-        <div class="feature-card" data-reveal data-delay="2">
-          <span class="feature-number" aria-hidden="true">02</span>
-          <div class="feature-icon-wrap" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <article class="pp-chip" data-reveal>
+          <div class="pp-chip-media"><img src="../imagenes/fachada.png" alt="Fachada rehabilitada" loading="lazy" /></div>
+          <div class="pp-chip-tints pp-chip-tints--dorado" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="pp-chip-body">
+            <span class="pp-chip-code">DAP-02 · Exterior</span>
+            <h3>Fachadas</h3>
+            <p>Tratamiento de grietas, impermeabilización y pinturas especiales para exterior de máxima durabilidad.</p>
           </div>
-          <h3>Decoración de Interiores</h3>
-          <p>Asesoramiento en diseño y decoración para crear ambientes únicos. Transformamos cualquier espacio con creatividad y precisión artesanal.</p>
-        </div>
+        </article>
 
-        <div class="feature-card" data-reveal data-delay="3">
-          <span class="feature-number" aria-hidden="true">03</span>
-          <div class="feature-icon-wrap" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"/></svg>
+        <article class="pp-chip" data-reveal>
+          <div class="pp-chip-media"><img src="../imagenes/premium.png" alt="Acabado decorativo premium" loading="lazy" /></div>
+          <div class="pp-chip-tints pp-chip-tints--carbon" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="pp-chip-body">
+            <span class="pp-chip-code">DAP-03 · Premium</span>
+            <h3>Acabados decorativos</h3>
+            <p>Estuco veneciano, microcemento, efectos metálicos y texturas artesanales.</p>
           </div>
-          <h3>Calidad Garantizada</h3>
-          <p>Materiales premium y garantía total en todos nuestros trabajos. Nuestros clientes son nuestra mejor carta de presentación desde hace más de 15 años.</p>
-        </div>
+        </article>
 
+        <article class="pp-chip" data-reveal>
+          <div class="pp-chip-media"><img src="../imagenes/hospital-civil.webp" alt="Fachada del Hospital Civil de Málaga" loading="lazy" /></div>
+          <div class="pp-chip-tints pp-chip-tints--marfil" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="pp-chip-body">
+            <span class="pp-chip-code">DAP-04 · Sanitario</span>
+            <h3>Pinturas técnicas</h3>
+            <p>Antibacterianas, epoxi y lavables para hospitales y centros de salud.</p>
+          </div>
+        </article>
       </div>
+
+      <p class="pp-more"><a href="tienda.html" class="pp-textlink">Ver todos los servicios</a></p>
     </section>
 
-    <!-- ════════════════════════════════════════
-         STATS
-    ════════════════════════════════════════ -->
-    <section class="stats-section" aria-labelledby="stats-title">
-      <div class="stats-inner">
-        <div class="section-header section-header--tight">
-          <span class="section-eyebrow section-eyebrow--gold" data-reveal>Nuestra trayectoria</span>
-          <h2 class="section-title section-title--light" id="stats-title" data-reveal data-delay="1">Números que <em>hablan</em> por sí solos</h2>
-        </div>
-        <div class="stats-grid">
-          <div class="stat-item" data-reveal>
-            <div class="stat-value"><span data-counter data-target="15" data-suffix="+">15+</span></div>
-            <div class="stat-label">Años de<br>experiencia</div>
-          </div>
-          <div class="stat-item" data-reveal data-delay="1">
-            <div class="stat-value"><span data-counter data-target="500" data-suffix="+">500+</span></div>
-            <div class="stat-label">Proyectos<br>completados</div>
-          </div>
-          <div class="stat-item" data-reveal data-delay="2">
-            <div class="stat-value"><span data-counter data-target="98" data-suffix="%">98%</span></div>
-            <div class="stat-label">Satisfacción<br>del cliente</div>
-          </div>
-          <div class="stat-item" data-reveal data-delay="3">
-            <div class="stat-value"><span data-counter data-target="12" data-suffix="">12</span></div>
-            <div class="stat-label">Profesionales<br>en el equipo</div>
-          </div>
-        </div>
+    <!-- ════════════ ESPECIALIDAD: lista editorial ════════════ -->
+    <section class="pp-section pp-health" id="especialidad" aria-labelledby="health-title">
+      <div class="pp-head" data-reveal>
+        <p class="pp-index">02 — Especialidad</p>
+        <h2 class="pp-h2" id="health-title">Hospitales que han confiado en <em>nosotros</em></h2>
+        <p class="pp-head-desc">Pintura interior y exterior, rehabilitación y pinturas técnicas en centros sanitarios de referencia de Málaga y la Costa del Sol.</p>
       </div>
+
+      <ol class="pp-cases" role="list">
+        <li class="pp-case" data-img="../imagenes/hospital-carlos-haya.webp" data-reveal>
+          <span class="pp-case-num">01</span>
+          <img class="pp-case-thumb" src="../imagenes/hospital-carlos-haya.webp" alt="" loading="lazy" />
+          <p class="pp-case-name">Hospital Regional Universitario de Málaga <small>Carlos Haya · Málaga</small></p>
+          <span class="pp-case-tags">Interior · Fachadas · Rehabilitación · Pinturas técnicas</span>
+        </li>
+        <li class="pp-case" data-img="../imagenes/hospital-civil.webp" data-reveal>
+          <span class="pp-case-num">02</span>
+          <img class="pp-case-thumb" src="../imagenes/hospital-civil.webp" alt="" loading="lazy" />
+          <p class="pp-case-name">Hospital Civil de Málaga <small>Málaga</small></p>
+          <span class="pp-case-tags">Interior · Fachadas · Rehabilitación · Pinturas técnicas</span>
+        </li>
+        <li class="pp-case" data-img="../imagenes/hospital-costa-del-sol.webp" data-reveal>
+          <span class="pp-case-num">03</span>
+          <img class="pp-case-thumb" src="../imagenes/hospital-costa-del-sol.webp" alt="" loading="lazy" />
+          <p class="pp-case-name">Hospital Costa del Sol <small>Marbella</small></p>
+          <span class="pp-case-tags">Interior · Fachadas · Rehabilitación · Pinturas técnicas</span>
+        </li>
+        <li class="pp-case pp-case--more" data-reveal>
+          <span class="pp-case-num">+</span>
+          <span class="pp-case-thumb pp-case-thumb--icon" aria-hidden="true">+</span>
+          <p class="pp-case-name">Otros hospitales y centros de salud <small>Málaga y provincia</small></p>
+          <span class="pp-case-tags">Instalaciones sanitarias</span>
+        </li>
+      </ol>
+
+      <div class="pp-preview" aria-hidden="true"><img src="../imagenes/hospital-carlos-haya.webp" alt="" /></div>
+
+      <a href="sanitario.html" class="pp-textlink pp-textlink--light">Ver la especialidad sanitaria completa</a>
     </section>
 
-    <!-- ════════════════════════════════════════
-         PROCESS — Cómo trabajamos
-    ════════════════════════════════════════ -->
-    <section class="process-section" aria-labelledby="process-title">
-      <div class="process-inner">
-        <div class="section-header">
-          <span class="section-eyebrow" data-reveal>Nuestro proceso</span>
-          <h2 class="section-title" id="process-title" data-reveal data-delay="1">Así transformamos <em>tu espacio</em></h2>
-          <p class="section-desc" data-reveal data-delay="2">Un proceso claro, sin sorpresas, pensado para que tengas el control en todo momento.</p>
-        </div>
-        <ol class="process-steps" role="list">
-          <li class="process-step" data-reveal data-delay="1">
-            <div class="step-number" aria-hidden="true">01</div>
-            <h3 class="step-title">Consulta gratuita</h3>
-            <p class="step-desc">Nos describes tu proyecto y concertamos una visita sin compromiso para evaluar el espacio.</p>
-          </li>
-          <li class="process-step" data-reveal data-delay="2">
-            <div class="step-number" aria-hidden="true">02</div>
-            <h3 class="step-title">Presupuesto detallado</h3>
-            <p class="step-desc">Recibe un presupuesto transparente con materiales, plazos y precio cerrado. Sin letra pequeña.</p>
-          </li>
-          <li class="process-step" data-reveal data-delay="3">
-            <div class="step-number" aria-hidden="true">03</div>
-            <h3 class="step-title">Ejecución impecable</h3>
-            <p class="step-desc">Nuestro equipo trabaja con precisión y respeto al espacio, minimizando molestias al máximo.</p>
-          </li>
-          <li class="process-step" data-reveal data-delay="4">
-            <div class="step-number" aria-hidden="true">04</div>
-            <h3 class="step-title">Entrega y garantía</h3>
-            <p class="step-desc">Revisión final contigo y garantía por escrito sobre materiales y mano de obra aplicados.</p>
-          </li>
+    <!-- ════════════ CIFRAS: regla de medir ════════════ -->
+    <section class="pp-section pp-stats" aria-labelledby="stats-title">
+      <h2 class="sr-only" id="stats-title">Nuestra trayectoria en cifras</h2>
+      <div class="pp-ruler" aria-hidden="true"></div>
+      <dl class="pp-stats-grid">
+        <div data-reveal><dt>Años de experiencia</dt><dd><span data-count="15">15</span>+</dd></div>
+        <div data-reveal><dt>Proyectos completados</dt><dd><span data-count="500">500</span>+</dd></div>
+        <div data-reveal><dt>Satisfacción del cliente</dt><dd><span data-count="98">98</span>%</dd></div>
+        <div data-reveal><dt>Profesionales en el equipo</dt><dd><span data-count="12">12</span></dd></div>
+      </dl>
+    </section>
+
+    <!-- ════════════ MÉTODO: pincelada ════════════ -->
+    <section class="pp-section pp-process" id="metodo" aria-labelledby="process-title">
+      <div class="pp-head" data-reveal>
+        <p class="pp-index">03 — Método</p>
+        <h2 class="pp-h2" id="process-title">Cuatro pasos, <em>cero sorpresas</em></h2>
+      </div>
+
+      <div class="pp-process-wrap">
+        <svg class="pp-stroke" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M10 70 C 160 20, 300 110, 450 62 S 740 14, 900 64 S 1110 108, 1190 56" />
+        </svg>
+        <ol class="pp-steps" role="list">
+          <li data-reveal><span class="pp-step-num">01</span><h3>Consulta gratuita</h3><p>Nos describes tu proyecto y concertamos una visita sin compromiso para evaluar el espacio.</p></li>
+          <li data-reveal><span class="pp-step-num">02</span><h3>Presupuesto detallado</h3><p>Materiales, plazos y precio cerrado. Sin letra pequeña.</p></li>
+          <li data-reveal><span class="pp-step-num">03</span><h3>Ejecución impecable</h3><p>Trabajamos con precisión y respeto al espacio, minimizando molestias.</p></li>
+          <li data-reveal><span class="pp-step-num">04</span><h3>Entrega y garantía</h3><p>Revisión final contigo y garantía por escrito sobre materiales y mano de obra.</p></li>
         </ol>
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-         CTA BANNER
-    ════════════════════════════════════════ -->
-    <section class="cta-banner" data-reveal="scale" aria-labelledby="cta-title">
-      <div class="cta-content">
-        <span class="section-eyebrow">¿Tienes un proyecto?</span>
-        <h2 class="section-title" id="cta-title">Hablemos de tu <em>transformación</em></h2>
-        <p>Presupuesto gratuito. Sin compromisos, con total transparencia desde el primer minuto.</p>
-      </div>
-      <div class="cta-actions">
-        <a href="contacto.html" class="btn-primary">
-          Solicitar presupuesto
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/></svg>
+    <!-- ════════════ CTA ════════════ -->
+    <section class="pp-final" aria-labelledby="final-title">
+      <p class="pp-index pp-index--light">04 — Hablemos</p>
+      <h2 class="pp-final-title" id="final-title">¿Qué color tiene tu <em>proyecto</em>?</h2>
+      <div class="pp-final-actions">
+        <a href="contacto.html" class="pp-btn pp-btn--dark">
+          Pedir presupuesto gratis
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/></svg>
         </a>
-        <a href="tel:+34605055115" class="btn-outline">
-          Llamar ahora
-        </a>
+        <a href="tel:+34605055115" class="pp-tel">605 05 51 15</a>
       </div>
     </section>
 
   </main>
 
-  <!-- ─── FOOTER ─── -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-grid">
-
-        <!-- Brand -->
-        <div class="footer-brand-block">
-          <a href="index.html" class="footer-brand">
-            <img src="../imagenes/logo.png" alt="" width="509" height="472" loading="lazy" decoding="async" />
-            <div>
-              <div class="footer-brand-name">DecoArPint</div>
-              <span class="footer-brand-sub">Rehabilitaciones · Pintura</span>
-            </div>
-          </a>
-          <p class="footer-tagline">Empresa especializada en pintura profesional, decoración y rehabilitación de espacios en Málaga y provincia, con experiencia en hospitales y centros sanitarios.</p>
-          <div class="footer-social">
-            <a href="https://www.instagram.com/decoarpint_sl/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram (se abre en una pestaña nueva)">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/decoarpint?locale=es_ES" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook (se abre en una pestaña nueva)">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-            </a>
-            <div class="phone-container">
-              <button type="button" class="social-btn" id="phoneToggle" aria-label="Ver teléfonos de contacto" aria-expanded="false" aria-controls="phoneDropdown">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10.999h2C22 5.869 18.127 2 12.99 2v2C17.052 4 20 6.943 20 10.999z"/><path d="M13 8c2.103 0 3 .897 3 3h2c0-3.225-1.775-5-5-5v2zm3.422 5.443a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1.001 1.001 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a1 1 0 0 0-.086-1.391l-4.064-3.696z"/></svg>
-              </button>
-              <div class="phone-dropdown" id="phoneDropdown">
-                <a href="tel:+34605055115" class="phone-option">
-                  <span class="phone-opt-label">Oficina Principal</span>
-                  <span class="phone-opt-number">605 05 51 15</span>
-                </a>
-                <a href="tel:+34647537294" class="phone-option">
-                  <span class="phone-opt-label">Presupuestos</span>
-                  <span class="phone-opt-number">647 53 72 94</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Links -->
-        <nav aria-label="Navegación del pie de página">
-          <p class="footer-col-title">Navegación</p>
-          <div class="footer-col-links">
-            <a href="index.html">Inicio</a>
-            <a href="tienda.html">Servicios</a>
-            <a href="sanitario.html">Sector sanitario</a>
-            <a href="recursoshumanos.html">Únete al equipo</a>
-            <a href="ubicacion.html">Ubicación</a>
-            <a href="contacto.html">Contacto</a>
-          </div>
-        </nav>
-
-        <!-- Contact -->
-        <div>
-          <p class="footer-col-title">Contacto directo</p>
-          <div class="footer-contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10.999h2C22 5.869 18.127 2 12.99 2v2C17.052 4 20 6.943 20 10.999z"/><path d="M13 8c2.103 0 3 .897 3 3h2c0-3.225-1.775-5-5-5v2zm3.422 5.443a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1.001 1.001 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a1 1 0 0 0-.086-1.391l-4.064-3.696z"/></svg>
-            <div>
-              <a href="tel:+34605055115">605 05 51 15</a>
-              <a href="tel:+34647537294">647 53 72 94</a>
-            </div>
-          </div>
-          <div class="footer-contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"/></svg>
-            <a href="mailto:pinturas@decoarpint.com">pinturas@decoarpint.com</a>
-          </div>
-          <div class="footer-contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            <a href="ubicacion.html">Ardales, Málaga<br>España</a>
-          </div>
-        </div>
-
+  <!-- LAYOUT:FOOTER -->
+  <footer class="pp-footer">
+    <div class="pp-footer-grid">
+      <div>
+        <p class="pp-footer-brand">DecoArPint</p>
+        <p class="pp-footer-text">Pintura profesional, decoración y rehabilitación en Málaga y provincia, con experiencia en hospitales y centros sanitarios.</p>
       </div>
-
-      <div class="footer-bottom">
-        <p class="footer-copy">&copy; <span data-year>2026</span> DecoArPint SL — Todos los derechos reservados.</p>
-        <div class="footer-bottom-links">
-          <a href="contacto.html">Contacto</a>
+      <nav aria-label="Navegación del pie de página">
+        <p class="pp-footer-title">Navegación</p>
+          <a href="index.html">Inicio</a>
+          <a href="tienda.html">Servicios</a>
+          <a href="sanitario.html">Sector sanitario</a>
+          <a href="recursoshumanos.html">Únete al equipo</a>
           <a href="ubicacion.html">Ubicación</a>
-        </div>
+          <a href="contacto.html">Contacto</a>
+      </nav>
+      <div>
+        <p class="pp-footer-title">Contacto</p>
+        <a href="tel:+34605055115">605 05 51 15</a>
+        <a href="tel:+34647537294">647 53 72 94</a>
+        <a href="mailto:pinturas@decoarpint.com">pinturas@decoarpint.com</a>
+      </div>
+      <div>
+        <p class="pp-footer-title">Dónde estamos</p>
+        <a href="ubicacion.html">C. Castillo del Turón, 17<br>29550 Ardales, Málaga</a>
+      </div>
+      <div>
+        <p class="pp-footer-title">Síguenos</p>
+        <a href="https://www.instagram.com/decoarpint_sl/" target="_blank" rel="noopener noreferrer">Instagram <span class="sr-only">(se abre en una pestaña nueva)</span></a>
+        <a href="https://www.facebook.com/decoarpint?locale=es_ES" target="_blank" rel="noopener noreferrer">Facebook <span class="sr-only">(se abre en una pestaña nueva)</span></a>
       </div>
     </div>
+    <p class="pp-footer-copy">&copy; <span data-year>2026</span> DecoArPint SL — Todos los derechos reservados.</p>
   </footer>
+  <!-- /LAYOUT:FOOTER -->
 
   <script src="../Js/script.js"></script>
 </body>
